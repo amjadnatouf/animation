@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  height: 600px;
+}
+
+.animated-div {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  background-color: #000000;
+  position: absolute;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.animated-div:nth-child(odd) {
+  animation: slideInRight 1s both, moveBackLeft 2s forwards;
+}
+
+.animated-div:nth-child(even) {
+  animation: slideInLeft 1s both, moveBackRight 2s forwards;
+}
+
+@keyframes  slideInRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    background-color: red;
+  }
+  75%, 100%{
+    transform: translateX(calc(100vw - 100px)) scale(.75, .5);
+    background-color: red;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    background-color: red;
+  }
+  75%, 100%{
+    background-color: red;
+    transform: translateX(calc(-100vw + 100px)) scale(.75, .5);
+  }
+}
+
+ @keyframes moveBackLeft {
+  0% {
+    transform: translateX(calc(100vw - 100px)) ;
+  }
+  50% {
+    background-color: #000;
+  }
+  75%, 100%{
+    background-color: #000;
+    transform: translateX(0) ;
+  }
+} 
+
+@keyframes moveBackRight {
+  0% {
+    transform: translateX(calc(-100vw + 100px)) ;
+  }
+  50% {
+    background-color: #000;
+  }
+  75%, 100%{
+    background-color: #000;
+    transform: translateX(0);
+  }
+} 
+
+.animated-div:nth-child(1) {
+  animation-delay: 0s, 14s; 
+  top: 0;
+}
+
+.animated-div:nth-child(2) {
+  animation-delay: 1s, 12s; 
+  top: 100px;
+}
+
+.animated-div:nth-child(3) {
+  animation-delay: 2s, 10s; 
+  top: 200px;
+}
+
+.animated-div:nth-child(4) {
+  animation-delay: 3s, 8s; 
+  top: 300px;
+}
+
+.animated-div:nth-child(5) {
+  animation-delay: 4s, 6s; 
+  top: 400px;
+}
